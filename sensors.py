@@ -1,23 +1,10 @@
 from traffic import *
-# The road width is assumed and is taken before the program starts
+# Defining sensors that measure the distance of the closest object. Sensors are on footpath facing the road.
 
-# Defining sensors that measure the distance of the closest object. Sensors are on footpath
-
-
-def dist_sensors(
-        dist1_A,
-        dist1_B,
-        dist1_C,
-        dist1_D,
-        dist1_E,
-        dist2_A,
-        dist2_B,
-        dist2_C,
-        dist2_D,
-        dist2_E,
-):
+def dist_sensors(dist1_A, dist1_B, dist1_C, dist1_D, dist1_E, dist2_A ,dist2_B, dist2_C,dist2_D, dist2_E,):
     road_traffic_length1 = 0
     road_traffic_length2 = 0
+    # The road width is assumed and is taken before the program starts.
     road_width_1 = 5
     road_width_2 = 6
 
@@ -55,11 +42,10 @@ def dist_sensors(
     return road_traffic_length1, road_traffic_length2
 
 
-# defining sound sensors which detect sounds of certain frequencies and loudness that would be detected as an ambulance and would turn the road associated green.
+# defining sound sensors which detect sounds of certain frequencies and loudness that would be detected as an ambulance siren and would turn the road associated green.
 def sound_sensor(frequency1, frequency2, volume1, volume2, traffic_road1,traffic_road2):
 
     ambulance_frequency = 900
-    print(traffic_road1, traffic_road2)
     if ambulance_frequency == frequency1:
         green()
         print("For Road 1")
@@ -68,7 +54,6 @@ def sound_sensor(frequency1, frequency2, volume1, volume2, traffic_road1,traffic
         timer(20)
         yellow()
         traffic_road1 = traffic_road1 - 40
-        print(traffic_road1, traffic_road2)
         signals(traffic_road1, traffic_road2)
     elif ambulance_frequency == frequency2:
         green()
@@ -78,11 +63,11 @@ def sound_sensor(frequency1, frequency2, volume1, volume2, traffic_road1,traffic
         timer(20)
         yellow()
         traffic_road2 = traffic_road2 - 40
-        print(traffic_road1, traffic_road2)
         signals(traffic_road1, traffic_road2)
 
     elif ambulance_frequency == frequency1 and frequency2 == ambulance_frequency:
-        if volume1 > volume2:
+      # If there are 2 ambulances on both roads, the louder siren turns green
+        if volume1 >= volume2:
             green()
             print("For Road 1")
             red()
@@ -90,8 +75,9 @@ def sound_sensor(frequency1, frequency2, volume1, volume2, traffic_road1,traffic
             timer(20)
             yellow()
             traffic_road1 = traffic_road1 - 40
-            print(traffic_road1, traffic_road2)
             signals(traffic_road1, traffic_road2)
+            green = 1
+            return green
         elif volume1 < volume2:
             green()
             print("For Road 2")
@@ -100,10 +86,10 @@ def sound_sensor(frequency1, frequency2, volume1, volume2, traffic_road1,traffic
             timer(20)
             yellow()
             traffic_road2 = traffic_road1 - 40
-            print(traffic_road1, traffic_road2)
             signals(traffic_road1, traffic_road2)
+            green = 0
+            return green
         else:
             pass
     else:
-        print(traffic_road1, traffic_road2)
         signals(traffic_road1, traffic_road2)
