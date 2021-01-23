@@ -10,6 +10,12 @@ def red():
     print("Signal Red ", end="")
 
 
+
+def yellow():
+      print("Yellow Signals For Both Signals")
+      time.sleep(5)
+
+
 def timer(t):
 
   while t:
@@ -26,7 +32,7 @@ def timer(t):
 
 def signals(traffic_road1,traffic_road2):
 
-    while (traffic_road1 and traffic_road2) >= 0:
+    while traffic_road1 > 0 or traffic_road2 > 0:
       # checks the amount of traffic on both roads
       if traffic_road1 >= traffic_road2:
           green()
@@ -36,6 +42,8 @@ def signals(traffic_road1,traffic_road2):
           #  in that time gone by
           traffic_road1 = traffic_road1 - 40
           timer(20)
+          if not(traffic_road1 >= traffic_road2) or traffic_road1 > 0 or traffic_road2 > 0:
+            yellow()
       elif traffic_road2 > traffic_road1:
           green()
           print("For Road 2")
@@ -44,3 +52,5 @@ def signals(traffic_road1,traffic_road2):
           #traffic in that time gone by
           traffic_road2 = traffic_road2 -40
           timer(20)
+          if not(traffic_road2 > traffic_road1)  or traffic_road1 > 0 or traffic_road2 > 0:
+            yellow()
