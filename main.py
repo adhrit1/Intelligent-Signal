@@ -17,70 +17,70 @@ road1.grid(column=1, row=0)
 road2 = Label(window, text="Road 2")
 road2.grid(column=3, row=0)
 
-dist_sensor_A = Label(window, text="First Sensor(m) Point")
+dist_sensor_A = Label(window, text="First Point(m)")
 dist_sensor_A.grid(column=1, row=1)
 # Gets a random value
 data1_A = random.randint(1, 10)
 data1_A_text = Label(window, text=data1_A)
 data1_A_text.grid(column=2, row=1)
 
-dist_sensor2_A = Label(window, text="First Sensor(m) Point")
+dist_sensor2_A = Label(window, text="First Point(m)")
 dist_sensor2_A.grid(column=3, row=1)
 # Gets a random value
 data2_A = random.randint(1, 10)
 data2_A_text = Label(window, text=data2_A)
 data2_A_text.grid(column=4, row=1)
 
-dist_sensor_B = Label(window, text="Second Sensor(m) Point")
+dist_sensor_B = Label(window, text="Second Point(m)")
 dist_sensor_B.grid(column=1, row=2)
 # Gets a random value
 data1_B = random.randint(1, 10)
 data1_B_text = Label(window, text=data1_B)
 data1_B_text.grid(column=2, row=2)
 
-dist_sensor2_B = Label(window, text="Second Sensor(m) Point")
+dist_sensor2_B = Label(window, text="Second Point(m)")
 dist_sensor2_B.grid(column=3, row=2)
 # Gets a random value
 data2_B = random.randint(1, 10)
 data2_B_text = Label(window, text=data2_B)
 data2_B_text.grid(column=4, row=2)
 
-dist_sensor_C = Label(window, text="Third Sensor(m) Point")
+dist_sensor_C = Label(window, text="Third Point(m)")
 dist_sensor_C.grid(column=1, row=3)
 # Gets a random value
 data1_C = random.randint(1, 10)
 data1_C_text = Label(window, text=data1_C)
 data1_C_text.grid(column=2, row=3)
 
-dist_sensor2_C = Label(window, text="Third Sensor(m) Point")
+dist_sensor2_C = Label(window, text="Third Point(m)")
 dist_sensor2_C.grid(column=3, row=3)
 # Gets a random value
 data2_C = random.randint(1, 10)
 data2_C_text = Label(window, text=data2_C)
 data2_C_text.grid(column=4, row=3)
 
-dist_sensor_D = Label(window, text="Fourth Sensor(m) Point")
+dist_sensor_D = Label(window, text="Fourth Point(m)")
 dist_sensor_D.grid(column=1, row=4)
 # Gets a random value
 data1_D = random.randint(1, 10)
 data1_D_text = Label(window, text=data1_D)
 data1_D_text.grid(column=2, row=4)
 
-dist_sensor2_D = Label(window, text="Fourth Sensor(m) Point")
+dist_sensor2_D = Label(window, text="Fourth Point(m)")
 dist_sensor2_D.grid(column=3, row=4)
 # Gets a random value
 data2_D = random.randint(1, 10)
 data2_D_text = Label(window, text=data2_D)
 data2_D_text.grid(column=4, row=4)
 
-dist_sensor_E = Label(window, text="Fifth Sensor(m) Point")
+dist_sensor_E = Label(window, text="Fifth Point(m)")
 dist_sensor_E.grid(column=1, row=5)
 # Gets a random value
 data1_E = random.randint(1, 10)
 data1_E_text = Label(window, text=data1_E)
 data1_E_text.grid(column=2, row=5)
 
-dist_sensor2_E = Label(window, text="Fifth Sensor(m) Point")
+dist_sensor2_E = Label(window, text="Fifth Point(m)")
 dist_sensor2_E.grid(column=3, row=5)
 # Gets a random value
 data2_E = random.randint(1, 10)
