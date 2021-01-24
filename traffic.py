@@ -3,12 +3,10 @@ from tkinter import *
 
 
 def green():
-    print("Signal Green ", end="")
-
+  print("Signal Green ",end="")
 
 def red():
-
-    print("Signal Red ", end="")
+  print("Signal Red ",end="")
 
 
 def yellow():
@@ -36,24 +34,28 @@ def signals(traffic_road1, traffic_road2):
     while traffic_road1 > 0 or traffic_road2 > 0:
         # checks the amount of traffic on both roads
         if traffic_road1 >= traffic_road2:
+            print(traffic_road1, traffic_road2)
             green()
             print("For Road 1")
             red()
             print("For Road 2")
             #  in that time gone by
             traffic_road1 = traffic_road1 - 40
-            timer(20)
+            timer(5)
             if traffic_road2 > 0 or traffic_road1 > 0:
-              if traffic_road2 >= traffic_road1:
+              print(traffic_road1, traffic_road2)
+              if traffic_road2 > traffic_road1:
                 yellow()
         elif traffic_road2 > traffic_road1:
+            print(traffic_road1, traffic_road2)
             green()
             print("For Road 2")
             red()
             print("For Road 1")
             #traffic in that time gone by
             traffic_road2 = traffic_road2 - 40
-            timer(20)
+            timer(5)
             if traffic_road2 > 0 or traffic_road1 > 0:
+              print(traffic_road1, traffic_road2)
               if traffic_road1 >= traffic_road2:
                 yellow()

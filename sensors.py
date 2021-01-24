@@ -45,8 +45,9 @@ def dist_sensors(dist1_A, dist1_B, dist1_C, dist1_D, dist1_E, dist2_A ,dist2_B, 
 # defining sound sensors which detect sounds of certain frequencies and loudness that would be detected as an ambulance siren and would turn the road associated green.
 def sound_sensor(frequency1, frequency2, volume1, volume2, traffic_road1,traffic_road2):
 
-    ambulance_frequency = 900
-    if ambulance_frequency == frequency1:
+    
+    print(traffic_road1,traffic_road2)
+    if frequency1>=850 and frequency1<=950:
         green()
         print("For Road 1")
         red()
@@ -54,41 +55,43 @@ def sound_sensor(frequency1, frequency2, volume1, volume2, traffic_road1,traffic
         timer(20)
         yellow()
         traffic_road1 = traffic_road1 - 40
+        print(traffic_road1,traffic_road2)
         signals(traffic_road1, traffic_road2)
-    elif ambulance_frequency == frequency2:
+    elif frequency2>=850 and frequency2<=950:
         green()
         print("For Road 2")
         red()
         print("For Road 1")
+        print(traffic_road1,traffic_road2)
         timer(20)
         yellow()
         traffic_road2 = traffic_road2 - 40
         signals(traffic_road1, traffic_road2)
 
-    elif ambulance_frequency == frequency1 and frequency2 == ambulance_frequency:
+    elif frequency1 >=850 and frequency1<=950 and frequency2>=850 and frequency2<=950:
       # If there are 2 ambulances on both roads, the louder siren turns green
+        print(traffic_road1,traffic_road2)
         if volume1 >= volume2:
             green()
             print("For Road 1")
             red()
             print("For Road 2")
-            timer(20)
+            timer(5)
             yellow()
             traffic_road1 = traffic_road1 - 40
+            print(traffic_road1,traffic_road2)
             signals(traffic_road1, traffic_road2)
-            green = 1
-            return green
+            
         elif volume1 < volume2:
             green()
             print("For Road 2")
             red()
             print("For Road 1")
-            timer(20)
+            timer(5)
             yellow()
             traffic_road2 = traffic_road1 - 40
+            print(traffic_road1,traffic_road2)
             signals(traffic_road1, traffic_road2)
-            green = 0
-            return green
         else:
             pass
     else:

@@ -1,7 +1,7 @@
 import time
 import random
 from tkinter import *
-from traffic import signals
+from traffic import signals, green
 from sensors import dist_sensors, sound_sensor
 
 window = Tk()
@@ -113,21 +113,10 @@ volume_sensor2_text = Label(window, text=volume_sensor2_value)
 volume_sensor2_text.grid(column=4, row=8)
 
 
-C1 = Canvas(window, height=450, width=200)
-coord_red1 = 140, 100, 100, 60
-circle_red1 = C1.create_oval(coord_red1, fill="grey")
-C1.grid(column=1, row=9)
 
-C2 = Canvas(window, height=450, width=200)
-coord_red2 = 150, 100, 110, 60
-circle_red2 = C2.create_oval(coord_red2, fill="grey")
-C2.grid(column=3, row=9)
 
 def click():
     distance1, distance2 = dist_sensors(data1_A, data1_B, data1_C, data1_D,data1_E, data2_A, data2_B, data2_C,data2_D, data2_E)
-
-    circle_red1 = C1.create_oval(coord_red1, fill="green")
-    circle_red2 = C2.create_oval(coord_red2, fill="red")
 
     sound_sensor(sound_sensor1_value, sound_sensor2_value,volume_sensor1_value, volume_sensor2_value, distance1,distance2)
 
@@ -155,9 +144,9 @@ def click():
     data2_A_replace = random.randint(1, 10)
     data2_A_text.configure(text=data2_A_replace)
 
-    data2_B_replce = random.randint(1, 10)
+    data2_B_replace = random.randint(1, 10)
     # Automatic Change in values
-    data2_B_text.configure(text=data2_B_replce)
+    data2_B_text.configure(text=data2_B_replace)
 
     data2_C_replace = random.randint(1, 10)
     # Automatic Change in values
@@ -187,8 +176,13 @@ def click():
     # Automatic Change in values
     volume_sensor2_text.configure(text=volume1_replace)
 
+    def check():
+      distance1, distance2 = dist_sensors(data1_A_replace,data1_B_replace, data1_C_replace, data1_D_replace,data1_E_replace, data2_A_replace, data2_B_replace, data1_C_replace,data1_D_replace, data1_E_replace)
 
+      sound_sensor(sound1_sensor, sound2_sensor,volume1_replace, volume2_replace, distance1,distance2)
 
+    submit2 = submit = Button(window, text="Re Do", command=check)
+    submit2.grid(column=2, row=0)
 submit = Button(window, text="Enter", command=click)
 submit.grid(column=2, row=0)
 
