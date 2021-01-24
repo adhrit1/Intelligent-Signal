@@ -8,7 +8,7 @@ def dist_sensors(dist1_A, dist1_B, dist1_C, dist1_D, dist1_E, dist2_A ,dist2_B, 
     road_width_1 = 5
     road_width_2 = 6
 
-    #If the distance detected by the sensors is less then that of the road width, then sensors assume that there is a car on the road and adds to length of traffic.
+    # Checks the sensor data points for the values.
     if dist1_A <= road_width_1:
         road_traffic_length1 = 10
 
@@ -63,7 +63,7 @@ def sound_sensor(frequency1, frequency2, volume1, volume2, traffic_road1,traffic
         print("The length of traffic on road 2 is", traffic_road2,"metres")
         signals(traffic_road1, traffic_road2)
     elif frequency2>=850 and frequency2<=950:
-        print("Ambulance Incoming in road 2!")
+        print("Ambulance Incoming on road 2!")
         green()
         print("For Road 2")
         red()
@@ -72,7 +72,7 @@ def sound_sensor(frequency1, frequency2, volume1, volume2, traffic_road1,traffic
         yellow()
         traffic_road2 = traffic_road2 - 40
         if traffic_road1<0:
-          raffic_road1=0
+          traffic_road1=0
         print("The length of traffic on road 1 is",traffic_road1,"metres")
         print("The length of traffic on road 2 is", traffic_road2,"metres")
         signals(traffic_road1, traffic_road2)

@@ -46,8 +46,8 @@ def signals(traffic_road1, traffic_road2):
             timer(20)
             if traffic_road1<0:
               traffic_road1=0
-            print("The length of traffic in road 1 is", traffic_road1,"metres")
-            print("The length of traffic in road 2 is", traffic_road2,"metres")
+            print("The length of traffic on road 1 is", traffic_road1,"metres")
+            print("The length of traffic on road 2 is", traffic_road2,"metres")
             if traffic_road2 > 0 or traffic_road1 > 0:
               if traffic_road2 > traffic_road1:
                 yellow()
@@ -61,8 +61,8 @@ def signals(traffic_road1, traffic_road2):
             timer(20)
             if traffic_road2<0:
               traffic_road2=0
-            print("The lenght of traffic in road 1 is", traffic_road1,"metres")
-            print("The lenght of traffic in road 2 is", traffic_road2,"metres")
+            print("The length of traffic on road 1 is", traffic_road1,"metres")
+            print("The length of traffic on road 2 is", traffic_road2,"metres")
             if traffic_road2 > 0 or traffic_road1 > 0:
               if traffic_road1 >= traffic_road2:
                 yellow()
