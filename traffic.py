@@ -3,17 +3,20 @@ from tkinter import *
 
 
 def green():
+  # Green Light
   print("Signal Green ",end="")
 
 def red():
+  # Red Light
   print("Signal Red ",end="")
 
 
 def yellow():
+  # Yellow Light
     print("Yellow Signals For Both Signals")
     time.sleep(5)
 
-
+#The stopwatch program is below
 def timer(t):
 
     while t:
@@ -26,36 +29,40 @@ def timer(t):
             print(f'00:00')
 
 
-# function for signals
+# The following program compares the amount of traffic on the two roads based on the sensor inputs to decide which road gets the light.
 
 
 def signals(traffic_road1, traffic_road2):
 
     while traffic_road1 > 0 or traffic_road2 > 0:
-        # checks the amount of traffic on both roads
+        
         if traffic_road1 >= traffic_road2:
-            print(traffic_road1, traffic_road2)
             green()
             print("For Road 1")
             red()
             print("For Road 2")
-            #  in that time gone by
+            
             traffic_road1 = traffic_road1 - 40
-            timer(5)
+            timer(20)
+            if traffic_road1<0:
+              traffic_road1=0
+            print("The length of traffic in road 1 is", traffic_road1,"metres")
+            print("The length of traffic in road 2 is", traffic_road2,"metres")
             if traffic_road2 > 0 or traffic_road1 > 0:
-              print(traffic_road1, traffic_road2)
               if traffic_road2 > traffic_road1:
                 yellow()
         elif traffic_road2 > traffic_road1:
-            print(traffic_road1, traffic_road2)
             green()
             print("For Road 2")
             red()
             print("For Road 1")
             #traffic in that time gone by
             traffic_road2 = traffic_road2 - 40
-            timer(5)
+            timer(20)
+            if traffic_road2<0:
+              traffic_road2=0
+            print("The lenght of traffic in road 1 is", traffic_road1,"metres")
+            print("The lenght of traffic in road 2 is", traffic_road2,"metres")
             if traffic_road2 > 0 or traffic_road1 > 0:
-              print(traffic_road1, traffic_road2)
               if traffic_road1 >= traffic_road2:
                 yellow()

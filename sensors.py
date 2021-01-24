@@ -8,7 +8,7 @@ def dist_sensors(dist1_A, dist1_B, dist1_C, dist1_D, dist1_E, dist2_A ,dist2_B, 
     road_width_1 = 5
     road_width_2 = 6
 
-    # if the distance detected by the sensors is less then that of the road width. The sensors assume that there is a car on the road and adds to lenght of traffic
+    #If the distance detected by the sensors is less then that of the road width, then sensors assume that there is a car on the road and adds to length of traffic.
     if dist1_A <= road_width_1:
         road_traffic_length1 = 10
 
@@ -41,13 +41,15 @@ def dist_sensors(dist1_A, dist1_B, dist1_C, dist1_D, dist1_E, dist2_A ,dist2_B, 
 
     return road_traffic_length1, road_traffic_length2
 
-
-# defining sound sensors which detect sounds of certain frequencies and loudness that would be detected as an ambulance siren and would turn the road associated green.
+ 
+# This part of the program records the frequency and loudness of the sounds using sound sensors. These values are compared with the other road and the ambulance to decide which road gets the light.
 def sound_sensor(frequency1, frequency2, volume1, volume2, traffic_road1,traffic_road2):
-
+    print("The length of traffic in road 1 is", traffic_road1,"metres")
+    print("The length of traffic in road 2 is", traffic_road2,"metres")
     
-    print(traffic_road1,traffic_road2)
+    
     if frequency1>=850 and frequency1<=950:
+        print("Ambulance incoming on road 1!")
         green()
         print("For Road 1")
         red()
@@ -55,42 +57,57 @@ def sound_sensor(frequency1, frequency2, volume1, volume2, traffic_road1,traffic
         timer(20)
         yellow()
         traffic_road1 = traffic_road1 - 40
-        print(traffic_road1,traffic_road2)
+        if traffic_road1<0:
+              traffic_road1=0
+        print("The length of traffic on road 1 is", traffic_road1,"metres")
+        print("The length of traffic on road 2 is", traffic_road2,"metres")
         signals(traffic_road1, traffic_road2)
     elif frequency2>=850 and frequency2<=950:
+        print("Ambulance Incoming in road 2!")
         green()
         print("For Road 2")
         red()
         print("For Road 1")
-        print(traffic_road1,traffic_road2)
         timer(20)
         yellow()
         traffic_road2 = traffic_road2 - 40
+        if traffic_road1<0:
+          raffic_road1=0
+        print("The length of traffic on road 1 is",traffic_road1,"metres")
+        print("The length of traffic on road 2 is", traffic_road2,"metres")
         signals(traffic_road1, traffic_road2)
 
     elif frequency1 >=850 and frequency1<=950 and frequency2>=850 and frequency2<=950:
       # If there are 2 ambulances on both roads, the louder siren turns green
         print(traffic_road1,traffic_road2)
         if volume1 >= volume2:
+            print("Ambulance Incoming on road 1!")
             green()
             print("For Road 1")
             red()
             print("For Road 2")
-            timer(5)
+            timer(20)
             yellow()
             traffic_road1 = traffic_road1 - 40
-            print(traffic_road1,traffic_road2)
+            if traffic_road1<0:
+              traffic_road1=0
+            print("The length of traffic on road 1 is", traffic_road1,"metres")
+            print("The length of traffic on road 2 is", traffic_road2,"metres")
             signals(traffic_road1, traffic_road2)
             
         elif volume1 < volume2:
+            print("Ambulance incoming on road 2!")
             green()
             print("For Road 2")
             red()
             print("For Road 1")
-            timer(5)
+            timer(20)
             yellow()
             traffic_road2 = traffic_road1 - 40
-            print(traffic_road1,traffic_road2)
+            if traffic_road2<0:
+              traffic_road1=0
+            print("The length of traffic on road 1 is", traffic_road1,"metres")
+            print("The length of traffic on road 2 is", traffic_road2,"metres")
             signals(traffic_road1, traffic_road2)
         else:
             pass

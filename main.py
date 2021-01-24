@@ -2,8 +2,11 @@ import time
 import random
 from tkinter import *
 from traffic import signals, green
+#Gets functions "signals" and "green" from traffic.py
 from sensors import dist_sensors, sound_sensor
+#Gets functions "dist_sensors" and "sound_sensor" from sensors.py
 
+#Provides the window for the GUI
 window = Tk()
 window.title("Intelligent Signal")
 window.geometry('450x200')
@@ -116,8 +119,10 @@ volume_sensor2_text.grid(column=4, row=8)
 
 
 def click():
+    # Calling Distance Sensor
     distance1, distance2 = dist_sensors(data1_A, data1_B, data1_C, data1_D,data1_E, data2_A, data2_B, data2_C,data2_D, data2_E)
 
+    # Calling Sound Sensor
     sound_sensor(sound_sensor1_value, sound_sensor2_value,volume_sensor1_value, volume_sensor2_value, distance1,distance2)
 
 
@@ -180,9 +185,10 @@ def click():
       distance1, distance2 = dist_sensors(data1_A_replace,data1_B_replace, data1_C_replace, data1_D_replace,data1_E_replace, data2_A_replace, data2_B_replace, data1_C_replace,data1_D_replace, data1_E_replace)
 
       sound_sensor(sound1_sensor, sound2_sensor,volume1_replace, volume2_replace, distance1,distance2)
-
-    submit2 = submit = Button(window, text="Re Do", command=check)
+      #Button thats calls function "click"
+    submit2 = submit = Button(window, text="Enter", command=check)
     submit2.grid(column=2, row=0)
+#Button thats calls function "click"
 submit = Button(window, text="Enter", command=click)
 submit.grid(column=2, row=0)
 
